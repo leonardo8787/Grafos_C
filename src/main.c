@@ -1,11 +1,14 @@
-#include "dfs.h"
+#include "graph.h"
 
 int main(){
 
-	Graph G = GraphInitialize(8);
+	int adj[]={};
+	int cont=0;
 
-	//Modelo de Grafo do slide 9 / aula 11
-	//S=0, W=1, R=2, V=3, T=4, X=5, U=6, Y=7
+	system("clear");
+	printf("\n===========GRAFO============\n\n\n");
+	Graph G = GraphInitialize(10);
+
 	GraphInsertEdge(G, G->adj[0], G->adj[2]);
 	GraphInsertEdge(G, G->adj[0], G->adj[1]);
 	GraphInsertEdge(G, G->adj[1], G->adj[0]);
@@ -27,11 +30,15 @@ int main(){
 	GraphInsertEdge(G, G->adj[7], G->adj[6]);
 	GraphInsertEdge(G, G->adj[7], G->adj[5]);
 
+	printf("\nLigações\n");
 	ImprimeGraph(G);
 
+	printf("\nBFS(Busca em largura)\n");
+	BFS(G, G->adj[0]);
+
+	printf("\nDFS(Busca em profundidade)\n");
 	DFS(G);
 
-	
 	return 0;
 
 }

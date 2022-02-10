@@ -1,8 +1,8 @@
-#ifndef BFS_H 
-#define BFS_H
+#ifndef GRAPH_H 
+#define GRAPH_H
 
-#include<stdio.h>
 #include<stdlib.h>
+#include<stdio.h>
 
 typedef struct graph *Graph;
 typedef struct TipoVertex *Vertex;
@@ -21,7 +21,6 @@ struct graph{
   Vertex *adj;
 };
 
-
 //fila
 struct TipoItem{
     int data;
@@ -34,17 +33,22 @@ struct TipoFila{
   int size;
 };
 
-
-
+//Grafo
 Vertex VertexInitialize(int value);
 Graph GraphInitialize(int V);
 void GraphInsertEdge(Graph G, Vertex v1, Vertex v2);
 void ImprimeGraph(Graph G);
 
+//BFS
 Fila* FFVazia();
 void Queue(Fila *f, int vertex);
 Item* Dequeue(Fila *f);
+void BFS(Graph G, Vertex s);
 
+//DFS
+Fila* FFVazia();
+void Queue(Fila *f, int vertex);
+Item* Dequeue(Fila *f);
 void DFS(Graph G);
 void DFS_VISIT(Graph G, Vertex v, int *cor, int *d, int *f, int *tempo);
 
